@@ -16,14 +16,16 @@ const initApp = (app, express) => {
   app.use("/api/listing", listingRouter);
 
   // Catch-all route for invalid URLs
-  app.all("*", (req, res, next) => {
-    res.send("In-valid Routing Plz check url or method");
+  app.use((req, res) => {
+    res.status(404).send("Invalid Routing. Please check the URL or method.");
   });
 
-  //global error handling
-  app.use(globalErrorHandling)
+  // Global error handling
+  app.use(globalErrorHandling);
+  
   // DB connection
   connectDB();
 };
+
 
 export default initApp;
