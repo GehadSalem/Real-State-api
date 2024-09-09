@@ -8,7 +8,7 @@ import path from 'path'
 
 
 const initApp = (app, express) => {
-  app.use(cors())
+  // app.use(cors())
   app.use(cors({
     origin: "https://real-state-gs.vercel.app", // Replace with your frontend domain
     credentials: true // Allow cookies
